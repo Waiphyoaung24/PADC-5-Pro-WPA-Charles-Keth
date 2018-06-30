@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/margin_medium_2"
+    android:layout_marginRight="@dimen/margin_medium"
+    android:layout_marginTop="@dimen/margin_xxxlarge">
+
+    <ImageView
+        android:id="@+id/iv_product_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_dummy_product_2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/margin_xlarge"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@color/white_full"
+        android:fontFamily="serif-monospace"
+        android:paddingLeft="@dimen/margin_medium_2"
+        android:paddingRight="@dimen/margin_medium_2"
+        android:text="@string/new_string"
+        android:textAllCaps="true"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/text_regular_3x" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_product_image"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/margin_medium_3"
+        android:fontFamily="serif-monospace"
+        android:id="@+id/tv_product_name"
+        android:text="@string/product_title"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/text_regular" />
+
+</RelativeLayout>

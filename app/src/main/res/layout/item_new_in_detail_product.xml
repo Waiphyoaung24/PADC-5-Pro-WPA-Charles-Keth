@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xyz.waiphyoag.padc_5_pro_wpa_charles_keith.viewholders.NewInProductDetailViewHolder xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/margin_medium"
+    android:layout_marginRight="@dimen/margin_medium">
+
+    <TextView
+        android:id="@+id/tv_product_detail_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
+        android:fontFamily="serif-monospace"
+        android:text="@string/product_title"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/text_heading_1x" />
+
+    <ImageView
+        android:id="@+id/iv_product_detail_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/margin_xlarge"
+        android:layout_marginRight="@dimen/margin_xlarge"
+        android:src="@drawable/img_dummy_product_2" />
+</xyz.waiphyoag.padc_5_pro_wpa_charles_keith.viewholders.NewInProductDetailViewHolder>
