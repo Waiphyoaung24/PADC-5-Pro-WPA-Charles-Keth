@@ -37,7 +37,7 @@ public class ProductsModel extends BaseModel {
         if (mInstance != null) {
             return mInstance;
         }
-        throw new RuntimeException("asdf");
+        throw new RuntimeException("The model is being invoked before initializing");
 
     }
 
@@ -70,6 +70,7 @@ public class ProductsModel extends BaseModel {
                     @Override
                     public void onError(Throwable e) {
                         mErrorMsgLD.setValue(e.getMessage());
+                        mProductLD.setValue(mDatabase.productDAO().getAllProduct()); // if crash, try post value.
 
                     }
 
@@ -81,7 +82,9 @@ public class ProductsModel extends BaseModel {
     }
 
     public void addNewProductsToDB(List<NewProductVO> productsVOS) {
+        mDatabase.clearAllTables();
         mDatabase.productDAO().insertProducts(productsVOS);
+        Log.d(CharlesKeithApp.LOG_TAG,"product list"+mDatabase.productDAO().getAllProduct().size());
     }
 
     public List<NewProductVO> getProductById(String productId) {

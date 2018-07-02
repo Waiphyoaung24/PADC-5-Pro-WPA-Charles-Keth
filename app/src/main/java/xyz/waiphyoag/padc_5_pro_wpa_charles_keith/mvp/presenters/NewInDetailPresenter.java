@@ -21,4 +21,8 @@ public class NewInDetailPresenter extends BasePresenter<NewInDetailView> {
     public LiveData<List<NewProductVO>> getProductLDById(String id) {
         return ProductsModel.getmInstance().getProductLiveDataById(id);
     }
+
+    public LiveData<List<NewProductVO>> getProductDetail() {
+        return ProductsModel.getmInstance().getAllProductLiveData();
+    }
 }

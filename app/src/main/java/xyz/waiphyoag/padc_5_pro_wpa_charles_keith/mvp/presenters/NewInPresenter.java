@@ -9,6 +9,7 @@ import xyz.waiphyoag.padc_5_pro_wpa_charles_keith.data.model.ProductsModel;
 import xyz.waiphyoag.padc_5_pro_wpa_charles_keith.data.vo.NewProductVO;
 import xyz.waiphyoag.padc_5_pro_wpa_charles_keith.delegates.NewInProductDelegate;
 import xyz.waiphyoag.padc_5_pro_wpa_charles_keith.mvp.views.NewInView;
+import xyz.waiphyoag.padc_5_pro_wpa_charles_keith.persistence.AppDatabase;
 
 /**
  * Created by WaiPhyoAg on 6/30/18.
@@ -31,9 +32,14 @@ public class NewInPresenter extends BasePresenter<NewInView> implements NewInPro
     }
 
 
+//    @Override
+//    public void onTapProduct() {
+//        mView.launchNewInDetailScreen();
+//
+//    }
+
     @Override
     public void onTapProduct() {
         mView.launchNewInDetailScreen();
-
     }
 }

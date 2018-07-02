@@ -5,22 +5,33 @@
     android:layout_marginLeft="@dimen/margin_medium"
     android:layout_marginRight="@dimen/margin_medium">
 
-    <TextView
-        android:id="@+id/tv_product_detail_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="90dp"
-        android:fontFamily="serif-monospace"
-        android:text="@string/product_title"
-        android:textColor="@color/secondary_text"
-        android:textSize="@dimen/text_heading_1x" />
-
-    <ImageView
-        android:id="@+id/iv_product_detail_image"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/margin_xlarge"
-        android:layout_marginRight="@dimen/margin_xlarge"
-        android:src="@drawable/img_dummy_product_2" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/tv_product_detail_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginLeft="@dimen/margin_medium_3"
+            android:layout_marginRight="@dimen/margin_medium_2"
+            android:fontFamily="serif-monospace"
+            android:text="@string/product_title"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/text_heading_1x" />
+
+        <ImageView
+            android:id="@+id/iv_product_detail_image"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:scaleType="centerCrop"
+            android:layout_marginLeft="@dimen/margin_xlarge"
+            android:layout_marginRight="@dimen/margin_xlarge"
+            android:src="@drawable/img_dummy_product_2" />
+    </LinearLayout>
 </xyz.waiphyoag.padc_5_pro_wpa_charles_keith.viewholders.NewInProductDetailViewHolder>

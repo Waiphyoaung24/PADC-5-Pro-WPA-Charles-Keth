@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.List;
+
 import javax.microedition.khronos.opengles.GL;
 
 import butterknife.BindView;
@@ -24,6 +26,8 @@ public class NewInProductViewHolder extends BaseViewHolder<NewProductVO> {
     @BindView(R.id.tv_product_name)
     TextView tvProductName;
     private NewInProductDelegate mDelegate;
+    private NewProductVO productVO;
+
 
     public NewInProductViewHolder(View itemView, NewInProductDelegate newInProductDelegate) {
         super(itemView);
@@ -32,6 +36,8 @@ public class NewInProductViewHolder extends BaseViewHolder<NewProductVO> {
 
     @Override
     public void setData(NewProductVO data) {
+
+        productVO = data;
 
         Glide.with(itemView.getContext())
                 .load(data.getProductImage())
@@ -43,6 +49,7 @@ public class NewInProductViewHolder extends BaseViewHolder<NewProductVO> {
 
     @Override
     public void onClick(View v) {
+
         mDelegate.onTapProduct();
 
     }

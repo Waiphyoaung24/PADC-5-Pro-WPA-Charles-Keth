@@ -3,11 +3,13 @@ package xyz.waiphyoag.padc_5_pro_wpa_charles_keith.activites;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -33,6 +35,8 @@ public class NewInListActivity extends BaseActivity implements NewInView {
 
     @BindView(R.id.rv_new_in_list)
     RecyclerView rvNewInList;
+    @BindView(R.id.tv_item_count)
+    TextView tvItemCount;
     private NewInProductAdapter mAdapter;
     private NewInPresenter mPresenter;
     private PublishSubject<List<NewProductVO>> mProductPS;
@@ -55,19 +59,28 @@ public class NewInListActivity extends BaseActivity implements NewInView {
             }
         });
 
-        mPresenter.getErrorLD().observe(this, this);
+        mPresenter.getErrorLD().observe(this, new android.arch.lifecycle.Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                Snackbar.make(rvNewInList,s,Snackbar.LENGTH_INDEFINITE).show();
+            }
+        });
+
 
 
         mAdapter = new NewInProductAdapter(getApplicationContext(), mPresenter);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(),2);
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
         rvNewInList.setLayoutManager(gridLayoutManager);
         rvNewInList.setAdapter(mAdapter);
+
 
 
     }
 
     public void displayProduct(List<NewProductVO> newProductVOS) {
         mAdapter.appendNewData(newProductVOS);
+        tvItemCount.setText(mAdapter.getItemCount()+" ITEMS ");
     }
 
 

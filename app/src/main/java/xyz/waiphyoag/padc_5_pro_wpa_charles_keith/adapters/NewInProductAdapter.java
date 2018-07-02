@@ -25,6 +25,10 @@ public class NewInProductAdapter extends BaseRecyclerAdapter<BaseViewHolder, New
 
     }
 
+    @Override
+    public int getItemCount() {
+        return super.getItemCount();
+    }
 
     @NonNull
     @Override

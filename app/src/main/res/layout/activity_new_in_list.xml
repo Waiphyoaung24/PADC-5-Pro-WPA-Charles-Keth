@@ -60,9 +60,21 @@
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/item_count"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:id="@+id/tv_item_count"
+            android:textColor="@color/secondary_text"
+            android:fontFamily="serif-monospace"
+            android:textSize="@dimen/text_regular_3x"
+            android:layout_centerHorizontal="true"/>
+
         <android.support.v7.widget.RecyclerView
             android:layout_marginTop="@dimen/margin_medium_2"
             android:layout_width="match_parent"
+            android:layout_below="@id/tv_item_count"
             android:layout_height="wrap_content"
             android:id="@+id/rv_new_in_list">
 

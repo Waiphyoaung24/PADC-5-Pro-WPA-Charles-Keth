@@ -14,6 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import xyz.waiphyoag.padc_5_pro_wpa_charles_keith.R;
 import xyz.waiphyoag.padc_5_pro_wpa_charles_keith.adapters.NewInImagePagerAdapter;
+import xyz.waiphyoag.padc_5_pro_wpa_charles_keith.adapters.NewInProductAdapter;
 import xyz.waiphyoag.padc_5_pro_wpa_charles_keith.data.vo.NewProductVO;
 import xyz.waiphyoag.padc_5_pro_wpa_charles_keith.mvp.presenters.NewInDetailPresenter;
 import xyz.waiphyoag.padc_5_pro_wpa_charles_keith.mvp.views.NewInDetailView;
@@ -30,6 +31,7 @@ public class NewInDetailActivity extends BaseActivity implements NewInDetailView
         return intent;
     }
 
+    private NewInImagePagerAdapter mAdapter;
     @BindView(R.id.vp_new_in_detail)
     ViewPager vpNewInDetail;
 
@@ -41,20 +43,26 @@ public class NewInDetailActivity extends BaseActivity implements NewInDetailView
         setContentView(R.layout.activity_new_in_detail);
         ButterKnife.bind(this, this);
 
-        NewInImagePagerAdapter newInImagePagerAdapter = new NewInImagePagerAdapter(getApplicationContext());
-        vpNewInDetail.setAdapter(newInImagePagerAdapter);
-//        mPresenter = ViewModelProviders.of(this).get(NewInDetailPresenter.class);
-//        mPresenter.initPresenter(this);
-//
-//         String currentId = getIntent().getStringExtra("id");
-//        List<NewProductVO>productVOS = AppDatabase.getObjInstance(getApplicationContext()).productDAO().getProductById(currentId);
-//
-//        mPresenter.getProductLDById(currentId).observe(this, new Observer<List<NewProductVO>>() {
-//            @Override
-//            public void onChanged(@Nullable List<NewProductVO> newProductVOS) {
-//
-//            }
-//        });
+        mAdapter = new NewInImagePagerAdapter(getApplicationContext());
+        vpNewInDetail.setAdapter(mAdapter);
+
+        mPresenter = ViewModelProviders.of(this).get(NewInDetailPresenter.class);
+        mPresenter.initPresenter(this);
+
+        mPresenter.getProductDetail().observe(this, new Observer<List<NewProductVO>>() {
+            @Override
+            public void onChanged(@Nullable List<NewProductVO> newProductVOS) {
+                displayProductDetail(newProductVOS);
+            }
+        });
+    }
+
+    public void displayProductDetail(List<NewProductVO> newProductVOS) {
+        mAdapter.setmProducts(newProductVOS);
 
     }
+
+    //
+
+
 }
